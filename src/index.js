@@ -7,6 +7,12 @@ import './index.css';
 import { theme } from './styles';
 import Home from './pages/home';
 import Login from './pages/login';
+import Sensors from './pages/sensors';
+import Sensor from './components/Sensor';
+import Buildings from './pages/buildings';
+import Building from './components/Building';
+import Rooms from './pages/rooms';
+import Room from './components/Room';
 import * as serviceWorker from './serviceWorker';
 import Firebase, { FirebaseContext } from './Firebase';
 
@@ -15,6 +21,12 @@ const Router = () => (
     <>
       <Route exact path="/" component={Home} />
       <Route exact path="/login" component={Login} />
+      <Route exact path="/sensors" component={Sensors} />
+      <Route exact path="/sensors/:id" component={Sensor} />
+      <Route exact path="/buildings" component={Buildings} />
+      <Route exact path="/buildings/:id" component={Building} />
+      <Route exact path="/rooms" component={Rooms} />
+      <Route exact path="/rooms/:id" component={Room} />
     </>
   </BrowserRouter>
 );
