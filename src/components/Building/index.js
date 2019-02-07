@@ -5,12 +5,9 @@ import {
   CardContent,
   CircularProgress,
 } from '@material-ui/core';
-import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 
-import { Layout, Center } from '../../elements';
 import Room from '../Room';
-import { HTMLEntities } from '../../utils/stringUtils';
 import { withFirebase } from '../../Firebase';
 
 class Building extends React.Component {
@@ -49,7 +46,7 @@ class Building extends React.Component {
       <div>
         <h1>Bygg: {this.state.building.name}</h1>
         {Object.keys(this.state.building.rooms || []).map(roomId => (
-          <Room id={roomId} />
+          <Room id={roomId} key={roomId} />
         ))}
       </div>
     );

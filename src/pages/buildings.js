@@ -1,12 +1,6 @@
 import React from 'react';
 import { Layout, Center } from '../elements';
-import {
-  Card,
-  CardHeader,
-  CardContent,
-  CircularProgress,
-} from '@material-ui/core';
-import { Link } from 'react-router-dom';
+import { CircularProgress } from '@material-ui/core';
 
 import { withFirebase } from '../Firebase';
 import Building from '../components/Building';
@@ -46,7 +40,7 @@ class Buildings extends React.Component {
     return (
       <Layout>
         {Object.keys(this.state.buildings).map(buildingId => (
-          <Building id={buildingId} />
+          <Building id={buildingId} key={buildingId} />
         ))}
       </Layout>
     );
