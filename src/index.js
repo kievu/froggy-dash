@@ -8,6 +8,7 @@ import { theme } from './styles';
 import Home from './pages/home';
 import Login from './pages/login';
 import * as serviceWorker from './serviceWorker';
+import Firebase, { FirebaseContext } from './Firebase';
 
 const Router = () => (
   <BrowserRouter>
@@ -20,9 +21,11 @@ const Router = () => (
 
 const App = () => {
   return (
-    <MuiThemeProvider theme={theme}>
-      <Router />
-    </MuiThemeProvider>
+    <FirebaseContext.Provider value={new Firebase()}>
+      <MuiThemeProvider theme={theme}>
+        <Router />
+      </MuiThemeProvider>
+    </FirebaseContext.Provider>
   );
 };
 
