@@ -1,5 +1,4 @@
 import React, { useState, useContext } from 'react';
-import { withRouter } from 'react-router';
 import {
   Button,
   Card,
@@ -11,21 +10,23 @@ import {
 import { Layout, Center, Padding } from '../elements';
 import { FirebaseContext } from '../Firebase';
 
-function Login({ history }) {
+function SignUp() {
   const [email, setEmail] = useState('');
   const [passwordOne, setPasswordOne] = useState('');
+  const [passwordTwo, setPasswordTwo] = useState('');
+
+  const [error, setError] = useState(null);
 
   const firebase = useContext(FirebaseContext);
-  const [error, setError] = useState(null);
 
   const onSubmit = async event => {
     event.preventDefault();
     try {
-      const user = await firebase.doSignInWithEmailAndPassword(
+      const user = await firebase.doCreateUserWithEmailAndPassword(
         email,
         passwordOne,
       );
-      history.push('/dashboard');
+      console.log(user);
     } catch (error) {
       setError(error);
     }
@@ -36,7 +37,7 @@ function Login({ history }) {
       <Center>
         <Card style={{ width: 400 }}>
           <Padding>
-            <CardHeader title="Login" />
+            <CardHeader title="Sign up" />
             <CardContent>
               <form
                 onSubmit={onSubmit}
@@ -51,7 +52,6 @@ function Login({ history }) {
                   onChange={event => setEmail(event.target.value)}
                   variant="outlined"
                 />
-
                 <TextField
                   fullWidth
                   title="Password"
@@ -60,9 +60,16 @@ function Login({ history }) {
                   onChange={event => setPasswordOne(event.target.value)}
                   variant="outlined"
                 />
-
+                <TextField
+                  fullWidth
+                  title="Repeat password"
+                  placeholder="Repeat password"
+                  margin="normal"
+                  onChange={event => setPasswordTwo(event.target.value)}
+                  variant="outlined"
+                />
                 <Button type="submit" variant="contained" color="primary">
-                  Login
+                  Submit
                 </Button>
                 {error && (
                   <Typography color="error">{error.message}</Typography>
@@ -83,4 +90,4 @@ const TextField = ({ title, ...rest }) => (
   </div>
 );
 
-export default withRouter(Login);
+export default SignUp;
