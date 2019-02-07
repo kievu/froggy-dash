@@ -5,12 +5,9 @@ import {
   CardContent,
   CircularProgress,
 } from '@material-ui/core';
-import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 
-import { Layout, Center } from '../../elements';
 import Sensor from '../Sensor';
-import { HTMLEntities } from '../../utils/stringUtils';
 import { withFirebase } from '../../Firebase';
 
 class Room extends React.Component {
@@ -49,7 +46,7 @@ class Room extends React.Component {
       <div>
         <h2>Rom: {this.state.room.name}</h2>
         {Object.values(this.state.room.sensors || []).map(sensorId => (
-          <Sensor id={sensorId} />
+          <Sensor id={sensorId} key={sensorId} />
         ))}
       </div>
     );
