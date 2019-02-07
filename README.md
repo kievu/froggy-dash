@@ -1,4 +1,13 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# froggy-dash
+A project created as part of Knowit miljøhack 2019
+
+## Goal
+
+Reduce energy waste in buildings owned by Statsbygg
+
+## Team
+
+We are mixed group consisting developers, UX-designer and business analyst with the urge of creating a solution for a better environment.
 
 ## Available Scripts
 
