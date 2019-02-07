@@ -9,6 +9,9 @@ const theme = createMuiTheme({
     primary: {
       main: colors.primary,
     },
+    secondary: {
+      main: '#fff',
+    },
   },
   overrides: {
     MuiButton: {
@@ -17,14 +20,11 @@ const theme = createMuiTheme({
         padding: '13px 30px',
         borderColor: colors.primary,
       },
-      disabled: {
-        border: 'none',
-      },
       containedPrimary: {
         fontWeight: 'bold',
         border: `2px solid ${colors.primary}`,
-        '&:hover': {
-          backgroundColor: 'rgba(21, 16, 87, 0.85)',
+        '&$disabled': {
+          border: 'none',
         },
       },
       outlinedPrimary: {
@@ -32,6 +32,9 @@ const theme = createMuiTheme({
         border: `2px solid ${colors.primary}`,
         '&:hover': {
           border: `2px solid ${colors.primary}`,
+        },
+        '&$disabled': {
+          border: 'none',
         },
       },
     },

@@ -1,26 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 
 import './index.css';
 import { theme } from './styles';
 import Home from './pages/home';
+import Login from './pages/login';
 import * as serviceWorker from './serviceWorker';
 
 const Router = () => (
   <BrowserRouter>
-    <div>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-      </ul>
-
-      <hr />
-
+    <>
       <Route exact path="/" component={Home} />
-    </div>
+      <Route exact path="/login" component={Login} />
+    </>
   </BrowserRouter>
 );
 
