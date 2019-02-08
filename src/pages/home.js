@@ -15,8 +15,10 @@ function Home(props) {
       <AppBar />
       <Center>
         <Typography variant="h2">Flying hacker frogs</Typography>
-        <FrogIcon role="img" aria-label="froggy" variant="h2">
-          🐸
+        <FrogIcon variant="h2">
+          <span role="img" aria-label="Frog">
+            🐸
+          </span>
         </FrogIcon>
       </Center>
     </Layout>
