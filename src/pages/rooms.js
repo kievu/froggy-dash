@@ -45,24 +45,8 @@ class Rooms extends React.Component {
 
     return (
       <Layout>
-        {Object.entries(this.state.rooms).map(([roomId, room]) => (
-          <Card key={roomId}>
-            <CardHeader
-              to={`/rooms/${roomId}`}
-              color="primary"
-              component={Link}
-              variant="contained"
-              style={{ height: '40px', minWidth: '130px' }}
-              title={roomId}
-            />
-            <CardContent>
-              <p>
-                {Object.entries(room.rooms).map(([roomId, room]) => (
-                  <Room id={roomId} />
-                ))}
-              </p>
-            </CardContent>
-          </Card>
+        {Object.keys(this.state.rooms).map(roomId => (
+          <Room id={roomId} key={roomId} />
         ))}
       </Layout>
     );

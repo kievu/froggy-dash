@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  Card,
-  CardHeader,
-  CardContent,
-  CircularProgress,
-} from '@material-ui/core';
+import { CircularProgress } from '@material-ui/core';
 import { withRouter } from 'react-router';
 
 import Sensor from '../Sensor';
