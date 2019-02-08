@@ -67,7 +67,7 @@ const DrawerList = () => (
       </Typography>
     </BuildingProfile>
 
-    <List>
+    <List style={{ borderRight: 'none' }}>
       {['Dashboard', 'Profil', 'Eksempel', 'Menyvalg'].map((text, index) => (
         <ListItem
           button

@@ -19,13 +19,15 @@ function SummaryBox() {
         </Typography>
         <Typography variant="h6">Gratulerer!</Typography>
         <Typography paragraph>
-          Du har stilt ned varmen 92 ganger og slått av lyset 540 ganger
+          Du har stilt ned varmen <strong>92</strong> ganger og slått av lyset{' '}
+          <strong>540</strong> ganger
         </Typography>
 
         <Typography variant="h6">Forslag til forbedringer</Typography>
         <Typography>
-          For optimal strømsparing, kunne du skrudd ned temperaturen 62 ganger
-          og slått av lyset 344 ganger.
+          For optimal strømsparing, kunne du skrudd ned temperaturen{' '}
+          <strong>62</strong> ganger og slått av lyset <strong>344</strong>{' '}
+          ganger.
         </Typography>
       </div>
       <div style={{ width: '50%' }}>
