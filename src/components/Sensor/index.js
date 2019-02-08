@@ -93,7 +93,16 @@ class Sensor extends React.Component {
 
     return (
       <Card style={{ width: '100%', marginTop: 50, height: 300 }}>
-        <div style={{ marginTop: '8px', marginLeft: '8px' }}>
+        <div
+          style={{
+            marginTop: '8px',
+            marginLeft: '8px',
+            display: 'flex',
+            justifyContent: 'space-between',
+            padding: '0 2rem 0 1rem',
+            alignItems: 'center',
+          }}
+        >
           <TextField
             id="sensorHeader"
             label="Sensor"
@@ -106,13 +115,14 @@ class Sensor extends React.Component {
             size="small"
             style={{
               backgroundColor: this.state.isIdentifying
-                ? colors.secondary
-                : colors.primary,
+                ? 'rgb(244, 191, 66)'
+                : '#76af21',
               color: 'white',
+              height: '2rem',
             }}
             onClick={() => this.setIdentifying(!this.state.isIdentifying)}
           >
-            Identify
+            Identifiser
           </Button>
         </div>
         {this.renderChart()}
