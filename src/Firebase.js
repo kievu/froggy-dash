@@ -27,7 +27,7 @@ class Firebase {
 
   doPasswordUpdate = password => this.auth.currentUser.updatePassword(password);
 
-  // *** User API ***
+  // *** Sensors, rooms and buildings API ***
 
   sensor = id => this.db.ref(`sensors/${id}`);
 
