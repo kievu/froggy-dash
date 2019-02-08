@@ -4,7 +4,7 @@ import { Typography } from '@material-ui/core';
 
 const Box = styled.div`
   display: flex;
-  padding: 24px;
+  padding: 40px;
   border: 2px solid green;
   flex-direction: column;
 `;
@@ -12,13 +12,15 @@ const Box = styled.div`
 function SummaryBox() {
   return (
     <Box>
-      <Typography>Sammendrag</Typography>
-      <Typography paragraph>Gratulerer</Typography>
-      <Typography>
+      <Typography paragraph variant="h5">
+        Sammendrag
+      </Typography>
+      <Typography variant="h6">Gratulerer</Typography>
+      <Typography paragraph>
         Du har stilt ned varmen 92 ganger og slått av lyset 540 ganger
       </Typography>
 
-      <Typography>Forslag til forbedringer</Typography>
+      <Typography variant="h6">Forslag til forbedringer</Typography>
       <Typography>
         For optimal strømsparing, kunne du skrudd ned temperaturen 62 ganger og
         slått av lyset 344 ganger.
