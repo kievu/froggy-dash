@@ -38,6 +38,18 @@ const theme = createMuiTheme({
         },
       },
     },
+    MuiDrawer: {
+      paper: {
+        width: 250,
+        backgroundColor: colors.dark,
+        color: colors.white,
+      },
+    },
+    MuiListItem: {
+      focusVisible: {
+        backgroundColor: colors.white,
+      },
+    },
   },
 });
 
