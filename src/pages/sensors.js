@@ -1,11 +1,6 @@
 import React from 'react';
 import { Layout, Center } from '../elements';
-import {
-  Card,
-  CardHeader,
-  CardContent,
-  CircularProgress,
-} from '@material-ui/core';
+import { CircularProgress } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 
 import { withFirebase } from '../Firebase';
