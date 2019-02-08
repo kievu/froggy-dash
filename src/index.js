@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import { MuiThemeProvider } from '@material-ui/core/styles';
+import WebFont from 'webfontloader';
 
 import './index.css';
 import { theme } from './styles';
@@ -20,6 +21,12 @@ import Sensor from './components/Sensor';
 import * as serviceWorker from './serviceWorker';
 import Firebase, { FirebaseContext } from './Firebase';
 import AuthUserProvider, { AuthUserContext } from './components/AuthUser';
+
+WebFont.load({
+  google: {
+    families: ['Hind:300,400,500,600,700'],
+  },
+});
 
 const Router = () => (
   <BrowserRouter>
