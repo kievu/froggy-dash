@@ -8,6 +8,7 @@ import { withFirebase } from '../../Firebase';
 import SimpleLineChart from '../SimpleLineChart';
 import Button from '@material-ui/core/Button/Button';
 import TextField from '@material-ui/core/TextField/TextField';
+import LightAndMovementChart from '../LightAndMovementChart';
 
 const LIGHT_IS_OFF_THRESHOLD = 700;
 
@@ -21,6 +22,7 @@ class Sensor extends React.Component {
       id: null,
       isIdentifying: false,
       name: '',
+      chartType: null,
     };
   }
 
@@ -67,6 +69,17 @@ class Sensor extends React.Component {
     this.props.firebase.setSensorName(this.props.id, event.target.value);
   };
 
+  renderChart = () => {
+    switch (this.props.chartType) {
+      case 'light':
+        return (
+          <LightAndMovementChart data={this.sortedAndFormattedMeasurements()} />
+        );
+      default:
+        return <SimpleLineChart data={this.sortedAndFormattedMeasurements()} />;
+    }
+  };
+
   render() {
     if (this.state.loading) {
       return <CircularProgress />;
@@ -95,7 +108,7 @@ class Sensor extends React.Component {
             Identify
           </Button>
         </div>
-        <SimpleLineChart data={this.sortedAndFormattedMeasurements()} />
+        {this.renderChart()}
       </Card>
     );
   }

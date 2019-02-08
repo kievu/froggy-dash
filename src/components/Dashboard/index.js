@@ -18,6 +18,7 @@ function Dashboard() {
       <Container>
         <SummaryBox />
         <Sensor id="84:F3:EB:76:DA:3A" />
+        <Sensor id="84:F3:EB:76:DA:3A" chartType="light" />
       </Container>
     </Center>
   );
