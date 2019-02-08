@@ -6,6 +6,7 @@ const Box = styled.div`
   display: flex;
   padding: 24px;
   border: 2px solid green;
+  flex-direction: column;
 `;
 
 function SummaryBox() {

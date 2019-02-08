@@ -7,6 +7,7 @@ import SummaryBox from './SummaryBox';
 const Container = styled.div`
   flex-grow: 1;
   padding: 24px;
+  width: 90%;
 `;
 
 function Dashboard() {

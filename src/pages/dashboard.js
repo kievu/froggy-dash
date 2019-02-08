@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
-  Hidden,
   Typography,
   Drawer,
   Divider,
@@ -10,7 +9,6 @@ import {
 } from '@material-ui/core';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { withStyles } from '@material-ui/core/styles';
 
 import { colors } from '../styles';
 import { Layout } from '../elements';
@@ -21,7 +19,7 @@ import logout from '../assets/logout.svg';
 
 function DashboardPage({ classes, theme }) {
   return (
-    <Layout>
+    <Layout style={{ display: 'grid', gridTemplateColumns: '250px 1fr' }}>
       <Drawer variant="permanent">
         <DrawerList />
       </Drawer>
