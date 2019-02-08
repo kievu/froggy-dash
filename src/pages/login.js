@@ -21,10 +21,7 @@ function Login({ history }) {
   const onSubmit = async event => {
     event.preventDefault();
     try {
-      const user = await firebase.doSignInWithEmailAndPassword(
-        email,
-        passwordOne,
-      );
+      await firebase.doSignInWithEmailAndPassword(email, passwordOne);
       history.push('/dashboard');
     } catch (error) {
       setError(error);
@@ -55,6 +52,7 @@ function Login({ history }) {
                 <TextField
                   fullWidth
                   title="Password"
+                  type="password"
                   placeholder="Password"
                   margin="normal"
                   onChange={event => setPasswordOne(event.target.value)}

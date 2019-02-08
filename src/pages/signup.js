@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import { withRouter } from 'react-router';
 import {
   Button,
   Card,
@@ -10,7 +11,7 @@ import {
 import { Layout, Center, Padding } from '../elements';
 import { FirebaseContext } from '../Firebase';
 
-function SignUp() {
+function SignUp({ history }) {
   const [email, setEmail] = useState('');
   const [passwordOne, setPasswordOne] = useState('');
   const [passwordTwo, setPasswordTwo] = useState('');
@@ -22,11 +23,8 @@ function SignUp() {
   const onSubmit = async event => {
     event.preventDefault();
     try {
-      const user = await firebase.doCreateUserWithEmailAndPassword(
-        email,
-        passwordOne,
-      );
-      console.log(user);
+      await firebase.doCreateUserWithEmailAndPassword(email, passwordOne);
+      history.push('/login');
     } catch (error) {
       setError(error);
     }
@@ -55,6 +53,7 @@ function SignUp() {
                 <TextField
                   fullWidth
                   title="Password"
+                  type="password"
                   placeholder="Password"
                   margin="normal"
                   onChange={event => setPasswordOne(event.target.value)}
@@ -63,6 +62,7 @@ function SignUp() {
                 <TextField
                   fullWidth
                   title="Repeat password"
+                  type="password"
                   placeholder="Repeat password"
                   margin="normal"
                   onChange={event => setPasswordTwo(event.target.value)}
@@ -90,4 +90,4 @@ const TextField = ({ title, ...rest }) => (
   </div>
 );
 
-export default SignUp;
+export default withRouter(SignUp);

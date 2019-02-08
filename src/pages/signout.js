@@ -1,16 +1,20 @@
 import { useEffect, useContext } from 'react';
 import { withRouter } from 'react-router';
+import { clearSessionToken } from '../components/AuthUser';
 
 import { FirebaseContext } from '../Firebase';
 
-const Signout = ({ history }) => {
+function Signout({ history }) {
   const firebase = useContext(FirebaseContext);
 
   useEffect(() => {
     firebase.doSignOut();
-    setTimeout(() => history.push('/'), 2000);
-  });
+    clearSessionToken();
+    const timer = setTimeout(() => history.push('/'), 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
   return null;
-};
+}
 
 export default withRouter(Signout);

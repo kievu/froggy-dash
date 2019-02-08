@@ -47,25 +47,28 @@ const Router = () => (
 );
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
-  <AuthUserContext>
-    {authUser => (
-      <Route
-        {...rest}
-        render={props =>
-          authUser ? (
-            <Component {...props} />
-          ) : (
-            <Redirect
-              to={{
-                pathname: '/login',
-                state: { from: props.location },
-              }}
-            />
-          )
-        }
-      />
+  <AuthUserContext.Consumer>
+    {hasToken => (
+      <>
+        {console.log('HEl', hasToken)}
+        <Route
+          {...rest}
+          render={props =>
+            hasToken ? (
+              <Component {...props} />
+            ) : (
+              <Redirect
+                to={{
+                  pathname: '/login',
+                  state: { from: props.location },
+                }}
+              />
+            )
+          }
+        />
+      </>
     )}
-  </AuthUserContext>
+  </AuthUserContext.Consumer>
 );
 
 const App = () => {

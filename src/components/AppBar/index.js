@@ -5,11 +5,11 @@ import UnauthenticatedNav from './UnauthenticatedNav';
 import { AuthUserContext } from '../AuthUser';
 
 function AppBar() {
-  const authUser = useContext(AuthUserContext);
+  const hasToken = useContext(AuthUserContext);
   return (
     <MuiAppBar position="static" color="secondary">
       <Toolbar css={{ color: 'red' }}>
-        {authUser ? <AuthenticatedNav /> : <UnauthenticatedNav />}
+        {hasToken ? <AuthenticatedNav /> : <UnauthenticatedNav />}
       </Toolbar>
     </MuiAppBar>
   );
