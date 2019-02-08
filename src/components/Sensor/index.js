@@ -9,6 +9,8 @@ import SimpleLineChart from '../SimpleLineChart';
 import Button from '@material-ui/core/Button/Button';
 import TextField from '@material-ui/core/TextField/TextField';
 
+const LIGHT_IS_OFF_THRESHOLD = 150;
+
 class Sensor extends React.Component {
   constructor(props) {
     super(props);
@@ -51,6 +53,7 @@ class Sensor extends React.Component {
     sortBy(Object.values(this.state.sensor), 'timestamp').map(measurement => ({
       ...measurement,
       timestamp: moment(measurement.timestamp).format('DD.MM.YY h:mm'),
+      light: measurement.light > LIGHT_IS_OFF_THRESHOLD ? 0 : 1,
     }));
 
   setIdentifying(isIdentifying) {
