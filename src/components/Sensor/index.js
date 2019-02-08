@@ -8,10 +8,11 @@ import {
 import { withRouter } from 'react-router';
 import moment from 'moment';
 import { sortBy } from 'lodash';
-
+import { colors } from '../../styles'
 import { HTMLEntities } from '../../utils/stringUtils';
 import { withFirebase } from '../../Firebase';
 import SimpleLineChart from '../SimpleLineChart';
+import Button from "@material-ui/core/Button/Button";
 
 class Sensor extends React.Component {
   constructor(props) {
@@ -21,6 +22,7 @@ class Sensor extends React.Component {
       loading: false,
       sensor: {},
       id: null,
+      isIdentifying: false
     };
   }
 
@@ -46,14 +48,27 @@ class Sensor extends React.Component {
       timestamp: moment(measurement.timestamp).format('DD.MM.YY h:mm'),
     }));
 
+  setIdentifying(isIdentifying) {
+    this.props.firebase.setSensorIsIdentifying(this.props.id, isIdentifying)
+    this.setState({
+      isIdentifying: isIdentifying
+      }
+    )
+  }
+
   render() {
     if (this.state.loading) {
       return <CircularProgress />;
     }
 
+    console.log(this.state.isIdentifying)
+
     return (
       <div style={{ width: '100%' }}>
         <h4>Sensor {this.state.id}</h4>
+        <Button variant="contained" size="small" style={{backgroundColor: this.state.isIdentifying? colors.secondary : colors.primary}} onClick={() => this.setIdentifying(!this.state.isIdentifying)}>
+          Identify
+        </Button>
         <SimpleLineChart data={this.sortedAndFormattedMeasurements()} />
       </div>
     );

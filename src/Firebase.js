@@ -44,6 +44,8 @@ class Firebase {
   room = id => this.db.ref(`rooms/${id}`);
 
   rooms = () => this.db.ref('rooms');
+
+  setSensorIsIdentifying = (id, isIdentifying) => this.db.ref(`sensors/${id}/isIdentifying`).set(isIdentifying)
 }
 
 // TODO: Figure out how to rewrite this to context + hooks API

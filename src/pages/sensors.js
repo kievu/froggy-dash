@@ -41,7 +41,7 @@ class Sensors extends React.Component {
     return (
       <Layout>
         {Object.keys(this.state.measurements).map(sensorId => (
-          <Sensor id={sensorId} />
+          <Sensor key={sensorId} id={sensorId} />
         ))}
       </Layout>
     );
