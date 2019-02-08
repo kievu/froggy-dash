@@ -25,8 +25,8 @@ const LightAndMovementChart = ({ data }) => {
         <Tooltip />
         <Legend />
         <Brush height={20} />
-        <Bar dataKey="motion" fill="#8884d8" stackId="a" />
-        <Bar dataKey="light" fill="#82ca9d" stackId="a" />
+        <Bar dataKey="motion" fill="#76AF21" stackId="a" />
+        <Bar dataKey="light" fill="#f4bf42" stackId="a" />
       </BarChart>
     </ResponsiveContainer>
   );

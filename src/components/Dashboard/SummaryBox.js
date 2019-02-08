@@ -15,7 +15,7 @@ function SummaryBox() {
       <Typography paragraph variant="h5">
         Sammendrag
       </Typography>
-      <Typography variant="h6">Gratulerer</Typography>
+      <Typography variant="h6">Gratulerer!</Typography>
       <Typography paragraph>
         Du har stilt ned varmen 92 ganger og slått av lyset 540 ganger
       </Typography>

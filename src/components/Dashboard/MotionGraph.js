@@ -1,18 +1,24 @@
-import React from 'react';
-import { Card, CircularProgress } from '@material-ui/core';
+import React, { useState, useEffect } from 'react';
+import { Card, CircularProgress, Button, TextField } from '@material-ui/core';
 import { withRouter } from 'react-router';
 import moment from 'moment';
-import { flatten, groupBy, sortBy } from 'lodash';
+import { sortBy } from 'lodash';
+
+import {
+  ResponsiveContainer,
+  Brush,
+  BarChart,
+  Bar,
+  XAxis,
+  Tooltip,
+  Legend,
+} from 'recharts';
+
 import { colors } from '../../styles';
 import { withFirebase } from '../../Firebase';
 import SimpleLineChart from '../SimpleLineChart';
-import Button from '@material-ui/core/Button/Button';
-import TextField from '@material-ui/core/TextField/TextField';
-import LightAndMovementChart from '../LightAndMovementChart';
 
-const LIGHT_IS_OFF_THRESHOLD = 700;
-
-class Sensor extends React.Component {
+class MotionGraph extends React.Component {
   constructor(props) {
     super(props);
 
@@ -22,7 +28,6 @@ class Sensor extends React.Component {
       id: null,
       isIdentifying: false,
       name: '',
-      chartType: null,
     };
   }
 
@@ -52,13 +57,10 @@ class Sensor extends React.Component {
   }
 
   sortedAndFormattedMeasurements = () =>
-    sortBy(Object.values(this.state.sensor), 'timestamp')
-      .filter(measurement => moment(measurement.timestamp).minute() % 20 === 0)
-      .map(measurement => ({
-        ...measurement,
-        timestamp: moment(measurement.timestamp).format('H:mm'),
-        light: measurement.light > LIGHT_IS_OFF_THRESHOLD ? 0 : 1,
-      }));
+    sortBy(Object.values(this.state.sensor), 'timestamp').map(measurement => ({
+      motion: measurement.motion,
+      timestamp: moment(measurement.timestamp).format('DD.MM.YY h:mm'),
+    }));
 
   setIdentifying(isIdentifying) {
     this.props.firebase.setSensorIsIdentifying(this.props.id, isIdentifying);
@@ -71,49 +73,41 @@ class Sensor extends React.Component {
     this.props.firebase.setSensorName(this.props.id, event.target.value);
   };
 
-  renderChart = () => {
-    switch (this.props.chartType) {
-      case 'light':
-        return (
-          <LightAndMovementChart data={this.sortedAndFormattedMeasurements()} />
-        );
-      default:
-        return <SimpleLineChart data={this.sortedAndFormattedMeasurements()} />;
-    }
-  };
-
   render() {
     if (this.state.loading) {
       return <CircularProgress />;
     }
-
+    const data = this.sortedAndFormattedMeasurements();
     return (
       <Card style={{ width: '50%', marginTop: 50 }}>
         <div style={{ marginTop: '8px', marginLeft: '8px' }}>
           <TextField
             id="sensorHeader"
-            label="Sensor"
+            label="MotionGraph"
             defaultValue={this.state.name}
             margin="normal"
             onChange={this.setNewName}
           />
-          <Button
-            variant="contained"
-            size="small"
-            style={{
-              backgroundColor: this.state.isIdentifying
-                ? colors.secondary
-                : colors.primary,
-            }}
-            onClick={() => this.setIdentifying(!this.state.isIdentifying)}
-          >
-            Identify
-          </Button>
         </div>
-        {this.renderChart()}
+        <ResponsiveContainer width="99%" height={200}>
+          <BarChart
+            width={600}
+            height={200}
+            data={data}
+            margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+            barGap={0}
+            barCategoryGap={0}
+          >
+            <XAxis type="category" dataKey="timestamp" />
+            <Tooltip />
+            <Legend />
+            <Brush height={20} />
+            <Bar dataKey="motion" fill="#76AF21" stackId="a" />
+          </BarChart>
+        </ResponsiveContainer>
       </Card>
     );
   }
 }
 
-export default withFirebase(withRouter(Sensor));
+export default withFirebase(withRouter(MotionGraph));
