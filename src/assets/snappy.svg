@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="44px" height="38px" viewBox="0 0 44 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53 (72520) - https://sketchapp.com -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop/Homepage" transform="translate(-51.000000, -26.000000)" fill="#EFF7F0">
+            <g id="Group" transform="translate(47.000000, 22.000000)">
+                <path d="M18.030614,13.1348066 L34.8208773,8.72633652 C38.5601295,7.74455433 42.3872842,9.97992549 43.3690664,13.7191778 C43.6750703,14.8846359 43.6750457,16.1093515 43.368995,17.2747974 L38.9604553,34.0625826 C38.3188826,36.5057009 36.4108295,38.4136775 33.9676854,39.0551521 L17.1774221,43.4636221 C13.4381699,44.4454043 9.61101524,42.2100331 8.62923305,38.4707809 C8.32322907,37.3053227 8.32325365,36.0806071 8.62930441,34.9151613 L13.0378441,18.127376 C13.6794168,15.6842577 15.5874699,13.7762811 18.030614,13.1348066 Z" id="Rectangle" transform="translate(25.999150, 26.094979) rotate(45.000000) translate(-25.999150, -26.094979) "></path>
+                <circle id="Oval" cx="39.1499073" cy="11.7457369" r="7"></circle>
+                <circle id="Oval" cx="13.1499073" cy="11.7457369" r="7"></circle>
+            </g>
+        </g>
+    </g>
+</svg>
