@@ -11,7 +11,7 @@ import Legend from 'recharts/lib/component/Legend';
 const SimpleLineChart = ({ data }) => {
   return (
     // 99% per https://github.com/recharts/recharts/issues/172
-    <ResponsiveContainer width="99%" height={320}>
+    <ResponsiveContainer width="99%" height={200}>
       <LineChart data={data}>
         <XAxis dataKey="timestamp" />
         <YAxis />

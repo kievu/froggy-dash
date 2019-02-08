@@ -84,11 +84,15 @@ class Sensor extends React.Component {
 
   render() {
     if (this.state.loading) {
-      return <CircularProgress />;
+      return (
+        <Card style={{ width: '100%', marginTop: 50, height: 300 }}>
+          <CircularProgress />
+        </Card>
+      );
     }
 
     return (
-      <Card style={{ width: '50%', marginTop: 50 }}>
+      <Card style={{ width: '100%', marginTop: 50, height: 300 }}>
         <div style={{ marginTop: '8px', marginLeft: '8px' }}>
           <TextField
             id="sensorHeader"
@@ -104,6 +108,7 @@ class Sensor extends React.Component {
               backgroundColor: this.state.isIdentifying
                 ? colors.secondary
                 : colors.primary,
+              color: 'white',
             }}
             onClick={() => this.setIdentifying(!this.state.isIdentifying)}
           >

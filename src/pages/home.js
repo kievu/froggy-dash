@@ -17,7 +17,7 @@ function Home() {
   return authUser ? (
     <Redirect to="/dashboard" />
   ) : (
-    <Layout style={{ justifyContent: 'center' }}>
+    <div style={{ justifyContent: 'center' }}>
       <AppBar />
       <Center>
         <Typography variant="h2">Flying hacker frogs</Typography>
@@ -27,7 +27,7 @@ function Home() {
           </span>
         </FrogIcon>
       </Center>
-    </Layout>
+    </div>
   );
 }
 

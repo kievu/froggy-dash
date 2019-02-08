@@ -17,7 +17,7 @@ function Dashboard() {
   return (
     <Center>
       <Container>
-        <SummaryBox />
+        <SummaryBox style={{ marginTop: '4rem' }} />
         <Sensor id="84:F3:EB:76:DA:3A" chartType="light" />
         <div style={{ display: 'flex', flexDirection: 'row' }}>
           <MotionGraph id="84:F3:EB:76:DA:3A" />

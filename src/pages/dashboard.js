@@ -19,13 +19,19 @@ import logout from '../assets/logout.svg';
 
 function DashboardPage({ classes, theme }) {
   return (
-    <Layout style={{ display: 'grid', gridTemplateColumns: '250px 1fr' }}>
+    <div
+      style={{
+        display: 'grid',
+        gridTemplateColumns: '250px 1fr',
+        paddingTop: '4rem',
+      }}
+    >
       <Drawer variant="permanent">
         <DrawerList />
       </Drawer>
       {/* Dashboard */}
       <Dashboard />
-    </Layout>
+    </div>
   );
 }
 

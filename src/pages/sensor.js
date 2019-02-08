@@ -3,12 +3,6 @@ import { Layout, Center } from '../elements';
 
 import { Sensor as SensorCard } from '../components/Sensor';
 
-const Sensor = () => (
-  <Layout>
-    <Center>
-      <SensorCard />;
-    </Center>
-  </Layout>
-);
+const Sensor = () => <SensorCard />;
 
 export default Sensor;

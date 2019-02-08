@@ -27,7 +27,7 @@ function MotionDetector({ firebase, id, match }) {
         alignItems: 'center',
         flexDirection: 'column',
         width: 350,
-        height: 350,
+        height: 300,
         marginTop: 50,
         marginLeft: 40,
         backgroundColor: motionData.motionDetected ? '#76AF21' : '#DC143C',
@@ -40,7 +40,7 @@ function MotionDetector({ firebase, id, match }) {
           <img
             src={running}
             alt="running person"
-            style={{ width: 120, height: 120 }}
+            style={{ width: 120, height: 150 }}
           />
           <Typography
             paragraph
