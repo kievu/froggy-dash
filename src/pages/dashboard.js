@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
+  Hidden,
   Typography,
   Drawer,
   Divider,
@@ -9,88 +10,93 @@ import {
 } from '@material-ui/core';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { withStyles } from '@material-ui/core/styles';
 
 import { colors } from '../styles';
-import { Layout, Center } from '../elements';
+import { Layout } from '../elements';
+import Dashboard from '../components/Dashboard';
 import uni from '../assets/uni.png';
 import snappy from '../assets/snappy.svg';
 import logout from '../assets/logout.svg';
 
-function Dashboard(props) {
+function DashboardPage({ classes, theme }) {
   return (
     <Layout>
-      <Drawer variant="permanent" anchor="left">
-        <LogoHeader>
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'row',
-              alignItems: 'center',
-            }}
-          >
-            <img src={snappy} alt="snappy logo" />
-            <Typography variant="h6" style={{ color: 'white', marginLeft: 10 }}>
-              SNAPPY
-            </Typography>
-          </div>
-        </LogoHeader>
-        <Divider />
-        <BuildingProfile>
-          <img src={uni} alt="university" style={{ width: 130, height: 130 }} />
-          <Typography
-            variant="h5"
-            style={{
-              textAlign: 'center',
-              color: colors.secondary,
-              marginTop: 20,
-              width: '90%',
-            }}
-          >
-            University of Stavanger
-          </Typography>
-        </BuildingProfile>
-
-        <List>
-          {['Dashboard', 'Profil', 'Eksempel', 'Menyvalg'].map(
-            (text, index) => (
-              <ListItem
-                button
-                key={text}
-                style={{
-                  display: 'flex',
-                  justifyContent: 'center',
-                  height: 75,
-                }}
-                divider
-              >
-                <WhiteListItem variant="subtitle1">{text}</WhiteListItem>
-              </ListItem>
-            ),
-          )}
-          <ListItem
-            button
-            to="/signout"
-            component={Link}
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              height: 75,
-            }}
-            focusRippleColor="#4E4E4E"
-          >
-            <ListItemIcon>
-              <img src={logout} alt="logout" />
-            </ListItemIcon>
-            <WhiteListItem variant="subtitle1">Logout</WhiteListItem>
-          </ListItem>
-        </List>
+      <Drawer variant="permanent">
+        <DrawerList />
       </Drawer>
-      <Center>
-        <Typography variant="h2">Dashboard</Typography>
-      </Center>
+      {/* Dashboard */}
+      <Dashboard />
     </Layout>
   );
 }
+
+const DrawerList = () => (
+  <>
+    <LogoHeader>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          alignItems: 'center',
+        }}
+      >
+        <img src={snappy} alt="snappy logo" />
+        <Typography variant="h6" style={{ color: 'white', marginLeft: 10 }}>
+          SNAPPY
+        </Typography>
+      </div>
+    </LogoHeader>
+    <Divider />
+    <BuildingProfile>
+      <img src={uni} alt="university" style={{ width: 130, height: 130 }} />
+      <Typography
+        variant="h5"
+        style={{
+          textAlign: 'center',
+          color: colors.secondary,
+          marginTop: 20,
+          width: '90%',
+        }}
+      >
+        University of Stavanger
+      </Typography>
+    </BuildingProfile>
+
+    <List>
+      {['Dashboard', 'Profil', 'Eksempel', 'Menyvalg'].map((text, index) => (
+        <ListItem
+          button
+          key={text}
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            height: 75,
+          }}
+          divider
+        >
+          <WhiteListItem variant="subtitle1">{text}</WhiteListItem>
+        </ListItem>
+      ))}
+      <ListItem
+        button
+        to="/signout"
+        component={Link}
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          height: 75,
+        }}
+        focusRippleColor="#4E4E4E"
+      >
+        <ListItemIcon>
+          <img src={logout} alt="logout" />
+        </ListItemIcon>
+        <WhiteListItem variant="subtitle1">Logout</WhiteListItem>
+      </ListItem>
+    </List>
+  </>
+);
 
 const LogoHeader = styled.div`
   display: flex;
@@ -113,4 +119,4 @@ const WhiteListItem = props => (
   <Typography style={{ color: 'white', textAlign: 'center' }} {...props} />
 );
 
-export default Dashboard;
+export default DashboardPage;
