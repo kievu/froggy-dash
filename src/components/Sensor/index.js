@@ -31,7 +31,7 @@ class Sensor extends React.Component {
     });
 
     this.props.firebase
-      .sensor(this.props.id || this.props.match.params.id)
+      .measurement(this.props.id || this.props.match.params.id)
       .on('value', snapshot => {
         this.setState({
           sensor: snapshot.val(),
@@ -43,7 +43,7 @@ class Sensor extends React.Component {
   sortedAndFormattedMeasurements = () =>
     sortBy(Object.values(this.state.sensor), 'timestamp').map(measurement => ({
       ...measurement,
-      timestamp: moment(measurement.timestamp).format(),
+      timestamp: moment(measurement.timestamp).format('DD.MM.YY h:mm'),
     }));
 
   render() {

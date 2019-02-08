@@ -40,7 +40,7 @@ class Room extends React.Component {
     return (
       <div>
         <h2>Rom: {this.state.room.name}</h2>
-        {Object.values(this.state.room.sensors || []).map(sensorId => (
+        {Object.values(this.state.room.measurements || []).map(sensorId => (
           <Sensor id={sensorId} key={sensorId} />
         ))}
       </div>

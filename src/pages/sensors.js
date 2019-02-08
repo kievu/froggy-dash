@@ -12,16 +12,16 @@ class Sensors extends React.Component {
 
     this.state = {
       loading: false,
-      sensors: {},
+      measurements: {},
     };
   }
 
   componentDidMount() {
     this.setState({ loading: true });
 
-    this.props.firebase.sensors().on('value', snapshot => {
+    this.props.firebase.measurements().on('value', snapshot => {
       this.setState({
-        sensors: snapshot.val(),
+        measurements: snapshot.val(),
         loading: false,
       });
     });
@@ -40,7 +40,7 @@ class Sensors extends React.Component {
 
     return (
       <Layout>
-        {Object.keys(this.state.sensors).map(sensorId => (
+        {Object.keys(this.state.measurements).map(sensorId => (
           <Sensor id={sensorId} />
         ))}
       </Layout>

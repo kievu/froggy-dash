@@ -33,6 +33,10 @@ class Firebase {
 
   sensors = () => this.db.ref('sensors');
 
+  measurement = id => this.db.ref(`measurements/${id}`);
+
+  measurements = () => this.db.ref('measurements');
+
   building = id => this.db.ref(`buildings/${id}`);
 
   buildings = () => this.db.ref('buildings');
