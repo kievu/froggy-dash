@@ -45,7 +45,7 @@ class Rooms extends React.Component {
 
     return (
       <Layout>
-        {Object.keys(this.state.rooms).map(roomId => (
+        {Object.values(this.state.rooms).map(roomId => (
           <Room id={roomId} key={roomId} />
         ))}
       </Layout>

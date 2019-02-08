@@ -21,6 +21,7 @@ function UnathenticatedNav() {
           component={Link}
           variant="contained"
           style={{ height: '40px', minWidth: '130px' }}
+          data-cypress="login-button"
         >
           Login
         </Button>

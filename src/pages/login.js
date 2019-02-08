@@ -47,6 +47,7 @@ function Login({ history }) {
                   margin="normal"
                   onChange={event => setEmail(event.target.value)}
                   variant="outlined"
+                  data-cypress="email-input"
                 />
 
                 <TextField
@@ -57,9 +58,15 @@ function Login({ history }) {
                   margin="normal"
                   onChange={event => setPasswordOne(event.target.value)}
                   variant="outlined"
+                  data-cypress="password-input"
                 />
 
-                <Button type="submit" variant="contained" color="primary">
+                <Button
+                  type="submit"
+                  variant="contained"
+                  color="primary"
+                  data-cypress="login-button"
+                >
                   Login
                 </Button>
                 {error && (
