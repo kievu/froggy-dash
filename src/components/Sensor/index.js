@@ -9,7 +9,7 @@ import SimpleLineChart from '../SimpleLineChart';
 import Button from '@material-ui/core/Button/Button';
 import TextField from '@material-ui/core/TextField/TextField';
 
-const LIGHT_IS_OFF_THRESHOLD = 150;
+const LIGHT_IS_OFF_THRESHOLD = 700;
 
 class Sensor extends React.Component {
   constructor(props) {
