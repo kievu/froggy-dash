@@ -8,8 +8,8 @@ function Signout({ history }) {
   const firebase = useContext(FirebaseContext);
 
   useEffect(() => {
-    firebase.doSignOut();
     clearSessionToken();
+    firebase.doSignOut();
     const timer = setTimeout(() => history.push('/'), 2000);
     return () => clearTimeout(timer);
   }, []);

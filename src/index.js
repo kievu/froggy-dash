@@ -50,7 +50,6 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
   <AuthUserContext.Consumer>
     {hasToken => (
       <>
-        {console.log('HEl', hasToken)}
         <Route
           {...rest}
           render={props =>

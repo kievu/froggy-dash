@@ -15,10 +15,6 @@ const TTL = 30;
  */
 export const getSessionToken = () => {
   const token = lscache.get(KEY);
-
-  if (token != null) {
-    setSessionToken(token);
-  }
   return token;
 };
 
@@ -54,7 +50,7 @@ function AuthUserProvider({ children, firebase }) {
   useEffect(() => {
     stateFromStorage();
     const firesub = firebase.auth.onAuthStateChanged(user => {
-      setSessionToken('yes');
+      user && setSessionToken('yes');
       setUser(!!user);
     });
     return () => firesub();
