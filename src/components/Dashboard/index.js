@@ -17,13 +17,7 @@ function Dashboard() {
     <Center>
       <Container>
         <SummaryBox />
-        <Card>
-          <CardContent>
-            <Center>
-              <Sensor id="84:F3:EB:76:DA:3A" />
-            </Center>
-          </CardContent>
-        </Card>
+        <Sensor id="84:F3:EB:76:DA:3A" />
       </Container>
     </Center>
   );
