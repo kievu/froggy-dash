@@ -1,31 +1,33 @@
 import React from 'react';
-import ResponsiveContainer from 'recharts/lib/component/ResponsiveContainer';
-import LineChart from 'recharts/lib/chart/LineChart';
-import Line from 'recharts/lib/cartesian/Line';
-import XAxis from 'recharts/lib/cartesian/XAxis';
-import YAxis from 'recharts/lib/cartesian/YAxis';
-import CartesianGrid from 'recharts/lib/cartesian/CartesianGrid';
-import Tooltip from 'recharts/lib/component/Tooltip';
-import Legend from 'recharts/lib/component/Legend';
+import {
+  ResponsiveContainer,
+  Brush,
+  BarChart,
+  Bar,
+  XAxis,
+  Tooltip,
+  Legend,
+} from 'recharts';
 
 const LightAndMovementChart = ({ data }) => {
   return (
     // 99% per https://github.com/recharts/recharts/issues/172
-    <ResponsiveContainer width="99%" height={320}>
-      <LineChart data={data}>
-        <XAxis dataKey="timestamp" />
-        <YAxis />
-        <CartesianGrid vertical={false} strokeDasharray="3 3" />
+    <ResponsiveContainer width="99%" height={200}>
+      <BarChart
+        width={600}
+        height={200}
+        data={data}
+        margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+        barGap={0}
+        barCategoryGap={0}
+      >
+        <XAxis type="category" dataKey="timestamp" />
         <Tooltip />
         <Legend />
-        <Line type="monotone" dataKey="motion" stroke="#82ca9d" />
-        <Line
-          type="monotone"
-          dataKey="light"
-          stroke="#8884d8"
-          activeDot={{ r: 8 }}
-        />
-      </LineChart>
+        <Brush height={20} />
+        <Bar dataKey="motion" fill="#8884d8" stackId="a" />
+        <Bar dataKey="light" fill="#82ca9d" stackId="a" />
+      </BarChart>
     </ResponsiveContainer>
   );
 };

@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CircularProgress } from '@material-ui/core';
 import { withRouter } from 'react-router';
 import moment from 'moment';
-import { sortBy } from 'lodash';
+import { flatten, groupBy, sortBy } from 'lodash';
 import { colors } from '../../styles';
 import { withFirebase } from '../../Firebase';
 import SimpleLineChart from '../SimpleLineChart';
@@ -52,11 +52,13 @@ class Sensor extends React.Component {
   }
 
   sortedAndFormattedMeasurements = () =>
-    sortBy(Object.values(this.state.sensor), 'timestamp').map(measurement => ({
-      ...measurement,
-      timestamp: moment(measurement.timestamp).format('DD.MM.YY h:mm'),
-      light: measurement.light > LIGHT_IS_OFF_THRESHOLD ? 0 : 1,
-    }));
+    sortBy(Object.values(this.state.sensor), 'timestamp')
+      .filter(measurement => moment(measurement.timestamp).minute() % 20 === 0)
+      .map(measurement => ({
+        ...measurement,
+        timestamp: moment(measurement.timestamp).format('H:mm'),
+        light: measurement.light > LIGHT_IS_OFF_THRESHOLD ? 0 : 1,
+      }));
 
   setIdentifying(isIdentifying) {
     this.props.firebase.setSensorIsIdentifying(this.props.id, isIdentifying);
