@@ -13,6 +13,7 @@ import { HTMLEntities } from '../../utils/stringUtils';
 import { withFirebase } from '../../Firebase';
 import SimpleLineChart from '../SimpleLineChart';
 import Button from "@material-ui/core/Button/Button";
+import TextField from "@material-ui/core/TextField/TextField";
 
 class Sensor extends React.Component {
   constructor(props) {
@@ -22,7 +23,8 @@ class Sensor extends React.Component {
       loading: false,
       sensor: {},
       id: null,
-      isIdentifying: false
+      isIdentifying: false,
+      name: ""
     };
   }
 
@@ -36,7 +38,16 @@ class Sensor extends React.Component {
       .measurement(this.props.id || this.props.match.params.id)
       .on('value', snapshot => {
         this.setState({
-          sensor: snapshot.val(),
+          sensor: snapshot.val()
+        });
+      });
+
+    this.props.firebase
+      .sensor(this.props.id || this.props.match.params.id)
+      .on('value', snapshot => {
+        this.setState({
+          name: snapshot.val().name,
+          isIdentifying: snapshot.val().isIdentifying,
           loading: false,
         });
       });
@@ -56,19 +67,29 @@ class Sensor extends React.Component {
     )
   }
 
+  setNewName = (event) => {
+    this.props.firebase.setSensorName(this.props.id, event.target.value)
+  }
+
   render() {
     if (this.state.loading) {
       return <CircularProgress />;
     }
 
-    console.log(this.state.isIdentifying)
-
     return (
       <div style={{ width: '100%' }}>
-        <h4>Sensor {this.state.id}</h4>
-        <Button variant="contained" size="small" style={{backgroundColor: this.state.isIdentifying? colors.secondary : colors.primary}} onClick={() => this.setIdentifying(!this.state.isIdentifying)}>
-          Identify
-        </Button>
+        <div style={{marginTop: "8px", marginLeft: "8px"}}>
+          <TextField
+            id="sensorHeader"
+            label="Sensor"
+            defaultValue={this.state.name}
+            margin="normal"
+            onChange={this.setNewName}
+          />
+          <Button variant="contained" size="small" style={{backgroundColor: this.state.isIdentifying? colors.secondary : colors.primary}} onClick={() => this.setIdentifying(!this.state.isIdentifying)}>
+            Identify
+          </Button>
+        </div>
         <SimpleLineChart data={this.sortedAndFormattedMeasurements()} />
       </div>
     );
