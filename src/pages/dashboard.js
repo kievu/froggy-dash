@@ -11,7 +11,6 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 import { colors } from '../styles';
-import { Layout } from '../elements';
 import Dashboard from '../components/Dashboard';
 import uni from '../assets/uni.png';
 import snappy from '../assets/snappy.svg';

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Layout, Center } from '../elements';
 import { CircularProgress } from '@material-ui/core';
-import { Link } from 'react-router-dom';
 
 import { withFirebase } from '../Firebase';
 import Sensor from '../components/Sensor';

@@ -1,12 +1,6 @@
 import React from 'react';
 import { Layout, Center } from '../elements';
-import {
-  Card,
-  CardHeader,
-  CardContent,
-  CircularProgress,
-} from '@material-ui/core';
-import { Link } from 'react-router-dom';
+import { CircularProgress } from '@material-ui/core';
 
 import { withFirebase } from '../Firebase';
 import Room from '../components/Room';

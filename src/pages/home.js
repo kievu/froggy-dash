@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Redirect } from 'react-router-dom';
 
 import { Typography } from '@material-ui/core';
-import { Layout, Center } from '../elements';
+import { Center } from '../elements';
 import AppBar from '../components/AppBar';
 import { AuthUserContext } from '../components/AuthUser';
 

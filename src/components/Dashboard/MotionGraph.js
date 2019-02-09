@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Card, CircularProgress, Button, TextField } from '@material-ui/core';
+import React from 'react';
+import { Card, CircularProgress, TextField } from '@material-ui/core';
 import { withRouter } from 'react-router';
 import moment from 'moment';
 import { sortBy } from 'lodash';
@@ -14,9 +14,7 @@ import {
   Legend,
 } from 'recharts';
 
-import { colors } from '../../styles';
 import { withFirebase } from '../../Firebase';
-import SimpleLineChart from '../SimpleLineChart';
 
 class MotionGraph extends React.Component {
   constructor(props) {
