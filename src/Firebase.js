@@ -45,12 +45,12 @@ class Firebase {
 
   rooms = () => this.db.ref('rooms');
 
-  setSensorIsIdentifying = (id, isIdentifying) => this.db.ref(`sensors/${id}/isIdentifying`).set(isIdentifying)
+  setSensorIsIdentifying = (id, isIdentifying) =>
+    this.db.ref(`sensors/${id}/isIdentifying`).set(isIdentifying);
 
-  setSensorName = (id, name) => this.db.ref(`sensors/${id}/name`).set(name)
+  setSensorName = (id, name) => this.db.ref(`sensors/${id}/name`).set(name);
 }
 
-// TODO: Figure out how to rewrite this to context + hooks API
 export const withFirebase = Component => props => (
   <FirebaseContext.Consumer>
     {firebase => <Component {...props} firebase={firebase} />}
