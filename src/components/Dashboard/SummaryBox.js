@@ -28,13 +28,8 @@ function SummaryBox() {
         <Typography paragraph>
           For optimal strømsparing kunne du skrudd ned temperaturen{' '}
           <strong>62</strong> ganger og slått av lyset <strong>344</strong>{' '}
-          ganger til.
-        </Typography>
-
-        <Typography variant="h6">Potensial for sparing</Typography>
-        <Typography paragraph>
-          Dette ville spart <strong>270kWh</strong>. Dette tilsvarer ca.{' '}
-          <strong>200 000,{HTMLEntities.ndash}</strong> i året.
+          ganger til. Dette ville spart <strong>270kWh</strong>, som tilsvarer
+          ca. <strong>200 000,{HTMLEntities.ndash}</strong> i året.
         </Typography>
       </div>
       <div
@@ -42,11 +37,12 @@ function SummaryBox() {
           width: '50%',
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'center',
           flexDirection: 'column',
         }}
       >
-        <h2>Energiforbruk i kWh</h2>
+        <Typography paragraph variant="h5">
+          Energiforbruk (kWh)
+        </Typography>
         <SimplePieChart />
       </div>
     </Box>
