@@ -6,7 +6,6 @@ import WebFont from 'webfontloader';
 
 import './index.css';
 import { theme } from './styles';
-import Home from './pages/home';
 import Login from './pages/login';
 import SignUp from './pages/signup';
 import SignOut from './pages/signout';
