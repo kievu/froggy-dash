@@ -22,7 +22,7 @@ function DashboardPage({ classes, theme }) {
       style={{
         display: 'grid',
         gridTemplateColumns: '250px 1fr',
-        paddingTop: '14rem',
+        paddingTop: '19rem',
       }}
     >
       <Drawer variant="permanent">
