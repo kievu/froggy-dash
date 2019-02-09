@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 
 import { colors } from '../styles';
 import Dashboard from '../components/Dashboard';
-import uni from '../assets/uni.png';
+import voksena from '../assets/voksena.png';
 import snappy from '../assets/snappy.svg';
 import logout from '../assets/logout.svg';
 
@@ -52,7 +52,7 @@ const DrawerList = () => (
     </LogoHeader>
     <Divider />
     <BuildingProfile>
-      <img src={uni} alt="university" style={{ width: 130, height: 130 }} />
+      <img src={voksena} alt="university" style={{ width: 130, height: 130 }} />
       <Typography
         variant="h5"
         style={{
@@ -62,7 +62,7 @@ const DrawerList = () => (
           width: '90%',
         }}
       >
-        Universitetet i Stavanger
+        Voksenåsen
       </Typography>
     </BuildingProfile>
 
