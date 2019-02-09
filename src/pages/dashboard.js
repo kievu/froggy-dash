@@ -46,7 +46,7 @@ const DrawerList = () => (
       >
         <img src={snappy} alt="snappy logo" />
         <Typography variant="h6" style={{ color: 'white', marginLeft: 10 }}>
-          SNAPPY
+          Snappysense
         </Typography>
       </div>
     </LogoHeader>
