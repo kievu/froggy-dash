@@ -59,7 +59,6 @@ function MotionDetector({ firebase, id, match }) {
             paragraph
             variant="h6"
             style={{
-              color: 'white',
               marginTop: 30,
               width: '90%',
               textAlign: 'center',
@@ -67,7 +66,7 @@ function MotionDetector({ firebase, id, match }) {
           >
             Ingen personer befinner seg i rommet
           </Typography>
-          <Typography style={{ color: 'white' }}>Sensor: {id}</Typography>
+          <Typography>Sensor: {id}</Typography>
         </>
       )}
     </Card>
