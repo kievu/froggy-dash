@@ -4,7 +4,7 @@ import { Legend, Tooltip, PieChart, Pie, Cell } from 'recharts';
 const data = [
   { name: 'Nødvendig', value: 500 },
   { name: 'Spart', value: 140 },
-  { name: 'Kunne vært spart', value: 270 },
+  { name: 'Kunne spart', value: 270 },
 ];
 const COLORS = ['rgb(216, 216, 216)', 'rgb(62, 110, 113)', 'rgb(53, 53, 53)'];
 
