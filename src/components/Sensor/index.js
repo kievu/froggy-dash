@@ -9,7 +9,7 @@ import Button from '@material-ui/core/Button/Button';
 import TextField from '@material-ui/core/TextField/TextField';
 import LightAndMovementChart from '../LightAndMovementChart';
 
-const LIGHT_IS_OFF_THRESHOLD = 700;
+const LIGHT_IS_OFF_THRESHOLD = 500;
 
 class Sensor extends React.Component {
   constructor(props) {
