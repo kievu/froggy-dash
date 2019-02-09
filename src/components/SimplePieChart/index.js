@@ -2,8 +2,8 @@ import React from 'react';
 import { Legend, Tooltip, PieChart, Pie, Cell } from 'recharts';
 
 const data = [
-  { name: 'Nødvendig energibruk', value: 500 },
-  { name: 'Spart energi', value: 270 },
+  { name: 'Nødvendig', value: 500 },
+  { name: 'Spart', value: 270 },
   { name: 'Kunne vært spart', value: 140 },
 ];
 const COLORS = ['rgb(216, 216, 216)', 'rgb(62, 110, 113)', 'rgb(53, 53, 53)'];

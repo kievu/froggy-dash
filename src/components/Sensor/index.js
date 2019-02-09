@@ -8,6 +8,7 @@ import SimpleLineChart from '../SimpleLineChart';
 import Button from '@material-ui/core/Button/Button';
 import TextField from '@material-ui/core/TextField/TextField';
 import LightAndMovementChart from '../LightAndMovementChart';
+import MotionGraph from '../Dashboard/MotionGraph';
 
 const LIGHT_IS_OFF_THRESHOLD = 500;
 
@@ -76,6 +77,8 @@ class Sensor extends React.Component {
         return (
           <LightAndMovementChart data={this.sortedAndFormattedMeasurements()} />
         );
+      case 'motion':
+        return <MotionGraph data={this.sortedAndFormattedMeasurements()} />;
       default:
         return <SimpleLineChart data={this.sortedAndFormattedMeasurements()} />;
     }
@@ -84,7 +87,16 @@ class Sensor extends React.Component {
   render() {
     if (this.state.loading) {
       return (
-        <Card style={{ width: '100%', marginTop: 50, height: 300 }}>
+        <Card
+          style={{
+            width: '100%',
+            marginTop: 50,
+            height: 300,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
           <CircularProgress />
         </Card>
       );

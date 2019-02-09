@@ -15,7 +15,7 @@ function SummaryBox() {
     <Box>
       <div style={{ width: '50%' }}>
         <Typography paragraph variant="h5">
-          Sammendrag for <strong>Universitetet i Stavanger</strong>
+          Sammendrag for <strong>Voksenåsen</strong>
         </Typography>
         <Typography variant="h6">Gratulerer!</Typography>
         <Typography paragraph>
@@ -36,8 +36,10 @@ function SummaryBox() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
+          flexDirection: 'column',
         }}
       >
+        <h2>Energiforbruk i kWh</h2>
         <SimplePieChart />
       </div>
     </Box>

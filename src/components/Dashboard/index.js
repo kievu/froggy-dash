@@ -20,7 +20,7 @@ function Dashboard() {
         <SummaryBox style={{ marginTop: '4rem' }} />
         <Sensor id="84:F3:EB:76:DA:3A" chartType="light" />
         <div style={{ display: 'flex', flexDirection: 'row' }}>
-          <MotionGraph id="84:F3:EB:76:DA:3A" />
+          <Sensor id="84:F3:EB:76:DA:3A" chartType="motion" />
           <MotionDetector id="84:F3:EB:76:DA:3A" />
         </div>
       </Container>

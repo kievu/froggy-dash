@@ -26,11 +26,13 @@ function MotionDetector({ firebase, id, match }) {
         justifyContent: 'center',
         alignItems: 'center',
         flexDirection: 'column',
-        width: 350,
+        width: '40%',
         height: 300,
         marginTop: 50,
         marginLeft: 40,
-        backgroundColor: motionData.motionDetected ? '#76AF21' : '#DC143C',
+        backgroundColor: motionData.motionDetected
+          ? '#76AF21'
+          : 'rgb(216, 216, 216)',
       }}
     >
       {motionData.loading ? (
