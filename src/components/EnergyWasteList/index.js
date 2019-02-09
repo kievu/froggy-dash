@@ -29,7 +29,7 @@ function AlignItemsList(props) {
     <Card style={{ marginTop: '2rem' }}>
       <CardContent>
         <List className={classes.root}>
-          <ListItem alignItems="flex-start">
+          <ListItem button alignItems="flex-start">
             <ListItemAvatar>
               <Avatar alt="Remy Sharp" src={bygg0} />
             </ListItemAvatar>
@@ -49,7 +49,7 @@ function AlignItemsList(props) {
               }
             />
           </ListItem>
-          <ListItem alignItems="flex-start">
+          <ListItem button alignItems="flex-start">
             <ListItemAvatar>
               <Avatar alt="Remy Sharp" src={bygg1} />
             </ListItemAvatar>
@@ -68,7 +68,7 @@ function AlignItemsList(props) {
               }
             />
           </ListItem>
-          <ListItem alignItems="flex-start">
+          <ListItem button alignItems="flex-start">
             <ListItemAvatar>
               <Avatar
                 alt="Remy Sharp"
