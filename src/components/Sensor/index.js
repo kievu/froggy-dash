@@ -56,7 +56,7 @@ class Sensor extends React.Component {
       .filter(measurement => moment(measurement.timestamp).minute() % 20 === 0)
       .map(measurement => ({
         ...measurement,
-        timestamp: moment(measurement.timestamp).format('H:mm'),
+        timestamp: moment(measurement.timestamp).format('ddd H:mm'),
         light: measurement.light > LIGHT_IS_OFF_THRESHOLD ? 0 : 1,
       }));
 
