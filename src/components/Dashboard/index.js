@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { Center } from '../../elements';
 import SummaryBox from './SummaryBox';
-import MotionGraph from './MotionGraph';
+import EnergyWasteList from '../EnergyWasteList';
 import Sensor from '../Sensor';
 import MotionDetector from './MotionDetector';
 
@@ -18,6 +18,7 @@ function Dashboard() {
     <Center>
       <Container>
         <SummaryBox style={{ marginTop: '4rem' }} />
+        <EnergyWasteList />
         <Sensor id="84:F3:EB:76:DA:3A" chartType="light" />
         <div style={{ display: 'flex', flexDirection: 'row' }}>
           <Sensor id="84:F3:EB:76:DA:3A" chartType="motion" />
