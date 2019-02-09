@@ -15,17 +15,21 @@ function SummaryBox() {
   return (
     <Box>
       <div style={{ width: '50%' }}>
-        <Typography paragraph variant="h5">
+        <Typography style={{ marginBottom: '2rem' }} variant="h4">
           Sammendrag for <strong>Voksenåsen</strong>
         </Typography>
-        <Typography variant="h6">Gratulerer!</Typography>
-        <Typography paragraph>
+        <Typography style={{ marginBottom: '0.3rem' }} variant="h5">
+          Gratulerer!
+        </Typography>
+        <Typography paragraph style={{ fontSize: '1rem' }}>
           Du har skrudd ned temperaturen <strong>92</strong> ganger og slått av
           lyset <strong>540</strong> ganger når rom ikke har vært i bruk.
         </Typography>
 
-        <Typography variant="h6">Forslag til forbedringer</Typography>
-        <Typography paragraph>
+        <Typography style={{ marginBottom: '0.3rem' }} variant="h5">
+          Forslag til forbedringer
+        </Typography>
+        <Typography paragraph style={{ fontSize: '1rem' }}>
           For optimal strømsparing kunne du skrudd ned temperaturen{' '}
           <strong>62</strong> ganger og slått av lyset <strong>344</strong>{' '}
           ganger til. Dette ville spart <strong>270kWh</strong>, som tilsvarer
