@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { withRouter } from 'react-router';
+import { Link } from 'react-router-dom';
 import {
   Button,
   Card,
@@ -76,6 +77,9 @@ function Login({ history }) {
             </CardContent>
           </Padding>
         </Card>
+        <Typography variant="subtitle1" style={{ marginTop: 30 }}>
+          Don't have an account? <Link to="/signup">Sign up here!</Link>
+        </Typography>
       </Center>
     </Layout>
   );

@@ -31,8 +31,7 @@ WebFont.load({
 const Router = () => (
   <BrowserRouter>
     <>
-      <Route exact path="/" component={Home} />
-      <Route path="/login" component={Login} />
+      <Route exact path="/" component={Login} />
       <Route path="/signup" component={SignUp} />
       <Route path="/signout" component={SignOut} />
       <PrivateRoute path="/dashboard" component={Dashboard} />

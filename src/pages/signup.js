@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { withRouter } from 'react-router';
+import { Link } from 'react-router-dom';
 import {
   Button,
   Card,
@@ -24,11 +25,13 @@ function SignUp({ history }) {
     event.preventDefault();
     try {
       await firebase.doCreateUserWithEmailAndPassword(email, passwordOne);
-      history.push('/login');
+      history.push('/dashboard');
     } catch (error) {
       setError(error);
     }
   };
+
+  const isInvalid = passwordOne !== passwordTwo;
 
   return (
     <Layout>
@@ -68,7 +71,12 @@ function SignUp({ history }) {
                   onChange={event => setPasswordTwo(event.target.value)}
                   variant="outlined"
                 />
-                <Button type="submit" variant="contained" color="primary">
+                <Button
+                  type="submit"
+                  disabled={isInvalid}
+                  variant="contained"
+                  color="primary"
+                >
                   Submit
                 </Button>
                 {error && (
@@ -78,6 +86,9 @@ function SignUp({ history }) {
             </CardContent>
           </Padding>
         </Card>
+        <Typography variant="subtitle1" style={{ marginTop: 30 }}>
+          Remember your account? <Link to="/">Go to login</Link>
+        </Typography>
       </Center>
     </Layout>
   );
