@@ -22,7 +22,7 @@ function DashboardPage({ classes, theme }) {
       style={{
         display: 'grid',
         gridTemplateColumns: '250px 1fr',
-        paddingTop: '4rem',
+        paddingTop: '6rem',
       }}
     >
       <Drawer variant="permanent">
@@ -62,7 +62,7 @@ const DrawerList = () => (
           width: '90%',
         }}
       >
-        University of Stavanger
+        Universitetet i Stavanger
       </Typography>
     </BuildingProfile>
 

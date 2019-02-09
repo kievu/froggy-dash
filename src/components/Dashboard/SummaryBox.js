@@ -15,22 +15,29 @@ function SummaryBox() {
     <Box>
       <div style={{ width: '50%' }}>
         <Typography paragraph variant="h5">
-          Sammendrag
+          Sammendrag for <strong>Universitetet i Stavanger</strong>
         </Typography>
         <Typography variant="h6">Gratulerer!</Typography>
         <Typography paragraph>
-          Du har stilt ned varmen <strong>92</strong> ganger og slått av lyset{' '}
-          <strong>540</strong> ganger
+          Du har skrudd ned temperaturen <strong>92</strong> ganger og slått av
+          lyset <strong>540</strong> ganger når rom ikke har vært i bruk.
         </Typography>
 
         <Typography variant="h6">Forslag til forbedringer</Typography>
         <Typography>
-          For optimal strømsparing, kunne du skrudd ned temperaturen{' '}
+          For optimal strømsparing kunne du skrudd ned temperaturen{' '}
           <strong>62</strong> ganger og slått av lyset <strong>344</strong>{' '}
-          ganger.
+          ganger til. Dette ville spart <strong>140kWh</strong>.
         </Typography>
       </div>
-      <div style={{ width: '50%' }}>
+      <div
+        style={{
+          width: '50%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
         <SimplePieChart />
       </div>
     </Box>
