@@ -6,6 +6,7 @@ import SummaryBox from './SummaryBox';
 import EnergyWasteList from '../EnergyWasteList';
 import Sensor from '../Sensor';
 import MotionDetector from './MotionDetector';
+import SelectorTab from "./SelectorTab";
 
 const Container = styled.div`
   flex-grow: 1;
@@ -18,6 +19,7 @@ function Dashboard() {
     <Center>
       <Container>
         <SummaryBox style={{ marginTop: '4rem' }} />
+        <SelectorTab/>
         <EnergyWasteList />
         <Sensor id="84:F3:EB:76:DA:3A" chartType="light" />
         <div style={{ display: 'flex', flexDirection: 'row' }}>
