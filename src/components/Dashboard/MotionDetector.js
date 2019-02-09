@@ -47,7 +47,7 @@ function MotionDetector({ firebase, id, match }) {
           <Typography
             paragraph
             variant="h6"
-            style={{ color: 'white', marginTop: 30 }}
+            style={{ color: 'white', marginTop: 30, textAlign: 'center' }}
           >
             Det befinner seg noen i rommet!
           </Typography>
