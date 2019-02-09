@@ -1,4 +1,8 @@
 import React from 'react';
+import Select from '@material-ui/core/Select/Select';
+import OutlinedInput from '@material-ui/core/OutlinedInput/OutlinedInput';
+import FormControl from '@material-ui/core/FormControl/FormControl';
+import InputLabel from '@material-ui/core/InputLabel/InputLabel';
 import {
   Typography,
   Drawer,
@@ -13,7 +17,7 @@ import { Link } from 'react-router-dom';
 import { colors } from '../styles';
 import Dashboard from '../components/Dashboard';
 import voksena from '../assets/voksena.png';
-import snappy from '../assets/snappy.svg';
+import snappy from '../assets/SnappySense_logo_Negative.png';
 import logout from '../assets/logout.svg';
 
 function DashboardPage({ classes, theme }) {
@@ -34,72 +38,106 @@ function DashboardPage({ classes, theme }) {
   );
 }
 
-const DrawerList = () => (
-  <>
-    <LogoHeader>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          alignItems: 'center',
-        }}
-      >
-        <img src={snappy} alt="snappy logo" />
-        <Typography variant="h6" style={{ color: 'white', marginLeft: 10 }}>
-          Snappysense
-        </Typography>
-      </div>
-    </LogoHeader>
-    <Divider />
-    <BuildingProfile>
-      <img src={voksena} alt="university" style={{ width: 130, height: 130 }} />
-      <Typography
-        variant="h5"
-        style={{
-          textAlign: 'center',
-          color: colors.secondary,
-          marginTop: 20,
-          width: '90%',
-        }}
-      >
-        Voksenåsen
-      </Typography>
-    </BuildingProfile>
+class DrawerList extends React.Component {
+  render() {
+    return (
+      <>
+        <LogoHeader>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <img src={snappy} alt="snappy logo" style={{ maxWidth: '70%' }} />
+          </div>
+        </LogoHeader>
 
-    <List style={{ borderRight: 'none' }}>
-      {['Dashboard', 'Profil', 'Eksempel', 'Menyvalg'].map((text, index) => (
-        <ListItem
-          button
-          key={text}
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            height: 75,
-          }}
-          divider
-        >
-          <WhiteListItem variant="subtitle1">{text}</WhiteListItem>
-        </ListItem>
-      ))}
-      <ListItem
-        button
-        to="/signout"
-        component={Link}
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          height: 75,
-        }}
-        focusRippleColor="#4E4E4E"
-      >
-        <ListItemIcon>
-          <img src={logout} alt="logout" />
-        </ListItemIcon>
-        <WhiteListItem variant="subtitle1">Logout</WhiteListItem>
-      </ListItem>
-    </List>
-  </>
-);
+        <FormControl variant="outlined" style={{ margin: '2rem' }}>
+          <InputLabel
+            ref={ref => {
+              this.InputLabelRef = ref;
+            }}
+            htmlFor="outlined-age-native-simple"
+            style={{ color: 'lightgrey' }}
+          >
+            Bygg
+          </InputLabel>
+          <Select
+            native
+            margin="dense"
+            style={{ color: 'white' }}
+            value="Eiendom"
+            input={
+              <OutlinedInput
+                name="building"
+                labelWidth="100"
+                id="outlined-age-native-simple"
+              />
+            }
+          >
+            <option value={10}>Voksenåsen</option>
+            <option value={20}>Stavanger Universitet</option>
+          </Select>
+        </FormControl>
+
+        <BuildingProfile>
+          <img
+            src={voksena}
+            alt="university"
+            style={{ width: 130, height: 130 }}
+          />
+          <Typography
+            variant="h5"
+            style={{
+              textAlign: 'center',
+              color: colors.secondary,
+              marginTop: 20,
+              width: '90%',
+            }}
+          >
+            Voksenåsen
+          </Typography>
+        </BuildingProfile>
+
+        <List style={{ borderRight: 'none' }}>
+          {['Dashboard', 'Profil'].map((text, index) => (
+            <ListItem
+              button
+              key={text}
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                height: 75,
+              }}
+              divider
+            >
+              <WhiteListItem variant="subtitle1">{text}</WhiteListItem>
+            </ListItem>
+          ))}
+          <ListItem
+            button
+            to="/signout"
+            component={Link}
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              height: 75,
+            }}
+            focusRippleColor="#4E4E4E"
+          >
+            <ListItemIcon>
+              <img src={logout} alt="logout" />
+            </ListItemIcon>
+            <WhiteListItem variant="subtitle1">Logout</WhiteListItem>
+          </ListItem>
+        </List>
+      </>
+    );
+  }
+}
 
 const LogoHeader = styled.div`
   display: flex;
@@ -107,7 +145,6 @@ const LogoHeader = styled.div`
   justify-content: center;
   width: 100%;
   height: 80px;
-  background-color: ${colors.secondary};
 `;
 
 const BuildingProfile = styled.div`
@@ -115,7 +152,7 @@ const BuildingProfile = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 400px;
+  height: 200px;
 `;
 
 const WhiteListItem = props => (
