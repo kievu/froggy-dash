@@ -42,7 +42,7 @@ function AlignItemsList(props) {
                     className={classes.inline}
                     color="textPrimary"
                   >
-                    Sparer 30kWh. Kunne spart 100 kWh til.{' '}
+                    Sparer 30kWh. Kunne spart <strong>100 kWh</strong> til.{' '}
                     <strong>👈 Gjør tiltak her først!</strong>
                   </Typography>
                 </React.Fragment>
@@ -62,7 +62,7 @@ function AlignItemsList(props) {
                     className={classes.inline}
                     color="textPrimary"
                   >
-                    Sparer 80kWh. Kunne spart 20 kWh til.
+                    Sparer 80kWh. Kunne spart <strong>20 kWh</strong> til.
                   </Typography>
                 </React.Fragment>
               }
@@ -84,7 +84,7 @@ function AlignItemsList(props) {
                     className={classes.inline}
                     color="textPrimary"
                   >
-                    Sparer 10kWh. Kunne spart 10 kWh til.
+                    Sparer 10kWh. Kunne spart <strong>10 kWh</strong> til.
                   </Typography>
                 </React.Fragment>
               }
