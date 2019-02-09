@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Typography } from '@material-ui/core';
 
 import SimplePieChart from '../SimplePieChart';
+import { HTMLEntities } from '../../utils/stringUtils';
 
 const Box = styled.div`
   display: flex;
@@ -24,10 +25,16 @@ function SummaryBox() {
         </Typography>
 
         <Typography variant="h6">Forslag til forbedringer</Typography>
-        <Typography>
+        <Typography paragraph>
           For optimal strømsparing kunne du skrudd ned temperaturen{' '}
           <strong>62</strong> ganger og slått av lyset <strong>344</strong>{' '}
-          ganger til. Dette ville spart <strong>140kWh</strong>.
+          ganger til.
+        </Typography>
+
+        <Typography variant="h6">Potensial for sparing</Typography>
+        <Typography paragraph>
+          Dette ville spart <strong>270kWh</strong>. Dette tilsvarer ca.{' '}
+          <strong>200 000,{HTMLEntities.ndash}</strong> i året.
         </Typography>
       </div>
       <div
