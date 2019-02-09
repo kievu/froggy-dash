@@ -1,50 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Layout, Center } from '../elements';
 import { CircularProgress } from '@material-ui/core';
 
 import { withFirebase } from '../Firebase';
 import Room from '../components/Room';
 
-class Rooms extends React.Component {
-  constructor(props) {
-    super(props);
+function Rooms({ firebase }) {
+  const [roomData, setData] = useState({ loading: true, rooms: null });
 
-    this.state = {
-      loading: false,
-      rooms: {},
-    };
-  }
-
-  componentDidMount() {
-    this.setState({ loading: true });
-
-    this.props.firebase.rooms().on('value', snapshot => {
-      this.setState({
-        rooms: snapshot.val(),
-        loading: false,
-      });
+  useEffect(() => {
+    firebase.rooms().on('value', snapshot => {
+      setData({ loading: false, rooms: snapshot.val() });
     });
-  }
+  });
 
-  render() {
-    if (this.state.loading) {
-      return (
-        <Layout>
-          <Center>
-            <CircularProgress />
-          </Center>
-        </Layout>
-      );
-    }
-
-    return (
-      <Layout>
-        {Object.values(this.state.rooms).map(roomId => (
-          <Room id={roomId} key={roomId} />
-        ))}
-      </Layout>
-    );
-  }
+  return roomData.loading ? (
+    <Layout>
+      <Center>
+        <CircularProgress />
+      </Center>
+    </Layout>
+  ) : (
+    <Layout>
+      {Object.values(roomData.rooms).map(roomId => (
+        <Room id={roomId} key={roomId} />
+      ))}
+    </Layout>
+  );
 }
 
 export default withFirebase(Rooms);
